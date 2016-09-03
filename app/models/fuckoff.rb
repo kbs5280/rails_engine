@@ -1,2 +1,0 @@
-class Fuckoff < ApplicationRecord
-end
