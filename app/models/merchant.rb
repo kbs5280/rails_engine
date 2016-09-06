@@ -24,6 +24,6 @@ class Merchant < ApplicationRecord
 
   def self.revenue_across_all_transactions_associated_with_one_merchant_by_date(merchant_id, date)
     result = joins(invoices: [:transactions, :invoice_items]).where(id: merchant_id).where(transactions: { result: 'success' }).where(invoices: { created_at: date}).sum('invoice_items.quantity * invoice_items.unit_price')
-    (result.round / 100.0).to_s
+      (result.round / 100.0).to_s
   end
 end
