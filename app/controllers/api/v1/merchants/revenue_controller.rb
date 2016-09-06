@@ -1,10 +1,13 @@
 class Api::V1::Merchants::RevenueController < ApplicationController
+  respond_to :json, :xml
+
   def index
-    # connect merchants to invoices
-    # connect invoices to transactions to ensure result = success
-    # connect invoices to invoice items - where the cost is
-    # check the invoices date by created_at
-    # then sum the charges
-    Merchant.revenue_by_date_all_merchants(params[:date])
+    revenue = Merchant.revenue_by_date_all_merchants( params[:date] )
+    respond_with revenue
+  end
+
+  def show
+    revenue = Merchant.revenue_across_all_transactions(params[:id])
+    respond_with revenue
   end
 end
