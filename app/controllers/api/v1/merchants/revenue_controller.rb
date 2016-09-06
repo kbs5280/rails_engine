@@ -7,7 +7,12 @@ class Api::V1::Merchants::RevenueController < ApplicationController
   end
 
   def show
-    revenue = Merchant.revenue_across_all_transactions(params[:id])
-    respond_with revenue
+    if params[:date]
+      revenue = Merchant.revenue_across_all_transactions_associated_with_one_merchant_by_date(params[:id], params[:date])
+      respond_with revenue
+    else
+      revenue = Merchant.revenue_across_all_transactions( params[:id] )
+      respond_with revenue
+    end
   end
 end
