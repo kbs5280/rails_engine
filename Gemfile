@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'unicorn'
+gem 'responders'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -40,7 +41,7 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor', group: :production 
+  gem 'rails_12factor', group: :production
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
