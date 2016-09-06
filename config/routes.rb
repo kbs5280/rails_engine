@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :most_revenue, only: [:index]
         resources :most_items, only: [:index]
         resources :revenue, only: [:index]
+        get '/:id/revenue', to: 'revenue#show'
       end
     end
   end
