@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
-  namespace :api do
+# use except instead of only as necessary
+# except (exclude) new and edit since we never want json there
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       namespace :merchants do
         resources :most_revenue, only: [:index]
