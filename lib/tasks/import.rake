@@ -3,6 +3,7 @@ require 'csv'
 desc "Import business data from csv file"
 task :import => [:environment] do
 
+
   file = 'data/customers.csv'
   CSV.foreach(file, headers: true) do |row|
     Customer.create(
