@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         get 'find',     to: 'find#show'
         get 'random',   to: 'random#show'
       end
-        resources :invoices, only: [:index, :show]
+      resources :invoices, only: [:index, :show]
 
       namespace :items do
         get 'find_all', to: 'find#index'
@@ -49,6 +49,7 @@ Rails.application.routes.draw do
         get 'find_all', to: 'find#index'
         get 'find',     to: 'find#show'
         get 'random',   to: 'random#show'
+        get '/:id/transactions', to: 'transactions#index'
       end
       resources :customers, only: [:index, :show]
     end
