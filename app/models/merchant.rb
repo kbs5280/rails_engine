@@ -28,7 +28,7 @@ class Merchant < ApplicationRecord
   end
 
   def self.find_random_merchant
-    find(rand(1..Merchant.all.count))
+    order("RANDOM()").limit(1)
   end
 end
 
