@@ -24,8 +24,21 @@ Rails.application.routes.draw do
       end
 
       namespace :invoices do
-        get 'find_all', to: 'find_all#index'
+        get 'find_all', to: 'find#index'
         get 'find', to: 'find#show'
+        get 'random', to: 'random#show'
+      end
+
+      namespace :transactions do
+        get 'find_all', to: 'find#index'
+        get 'find', to: 'find#show'
+        get 'random', to: 'random#show'
+      end
+
+      namespace :customers do
+        get 'find_all', to: 'find#index'
+        get 'find', to: 'find#show'
+        get 'random', to: 'random#show'
       end
 
       # record endpoints
