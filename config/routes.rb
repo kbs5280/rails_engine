@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
       namespace :merchants do
         # relationship endpoints
-        get 'find_all', to: 'find#index'
         get 'find', to: 'find#show'
+        get 'find_all', to: 'find#index'
+        get 'random', to: 'random#show'
         # random
 
         #business logic
@@ -18,6 +19,18 @@ Rails.application.routes.draw do
         get '/:id/revenue', to: 'revenue#show'
         get '/:id/favorite_customer', to: 'favorite_customer#show'
         get '/:id/customer_with_pending_invoices', to: 'pending_invoices#show'
+      end
+
+      namespace :items do
+        get 'find', to: 'find#show'
+        get 'find_all', to: 'find#index'
+        get 'random', to: 'random#show'
+      end
+
+      namespace :invoice_items do
+        get 'find', to: 'find#show'
+        get 'find_all', to: 'find#index'
+        get 'random', to: 'random#show'
       end
 
       # record endpoints
