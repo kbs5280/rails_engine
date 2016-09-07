@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
       namespace :merchants do
         # relationship endpoints
-        get 'find_all', to: 'find_all#index'
         get 'find', to: 'find#show'
+        get 'find_all', to: 'find#index'
+        get 'random', to: 'random#show'
         # random
 
         #business logic
