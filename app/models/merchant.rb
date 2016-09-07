@@ -27,3 +27,6 @@ class Merchant < ApplicationRecord
       (result.round / 100.0).to_s
   end
 end
+
+
+# Customer.joins(invoices: :transactions).group(:id).where(transactions: {result: 'success'}).count
