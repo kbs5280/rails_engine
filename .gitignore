@@ -49,9 +49,9 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-SimpleCov
-######################
+# SimpleCov
 /coverage
+# VCR
 /vcr/cassettes
 
 # Ignore application configuration
