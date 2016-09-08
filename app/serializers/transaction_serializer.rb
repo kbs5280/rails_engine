@@ -5,4 +5,8 @@ class TransactionSerializer < ActiveModel::Serializer
              :result,
              :created_at,
              :updated_at
+
+  def credit_card_number
+    (object.credit_card_number).to_s
+  end
 end
