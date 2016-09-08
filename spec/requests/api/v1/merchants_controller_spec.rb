@@ -9,6 +9,7 @@ describe 'Merchants controller' do
 
     expect(response).to be_success
 
+    expect(json.first["name"]).to eq(merchants.first.name)
     expect(json.count).to eq(10)
   end
 end
