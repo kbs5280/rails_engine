@@ -1,4 +1,5 @@
 class Api::V1::Items::FindController < ApplicationController
+  before_action :sanitize_unit_price
   respond_to :json, :xml
 
   def index
@@ -15,5 +16,11 @@ class Api::V1::Items::FindController < ApplicationController
 
     def items_params
       params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at)
+    end
+
+    def sanitize_unit_price
+      if params[:unit_price] && params[:unit_price].include?(".")
+        params[:unit_price] = params[:unit_price].delete"."
+      end
     end
 end
