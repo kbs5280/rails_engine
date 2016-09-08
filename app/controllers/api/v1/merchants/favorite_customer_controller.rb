@@ -2,9 +2,6 @@ class Api::V1::Merchants::FavoriteCustomerController < ApplicationController
   respond_to :json, :xml
 
   def show
-    # returns the customer who has conducted the most total number of successful transactions.
-    # merchants joins to transactions
-    # merchants joins to customers
-    # customer where the most successful transactions
+    Merchant.first.customers.select("customers.*, count(transactions.id) as transaction_count").joins(:transactions).where(transactions: { result: 'success' }).group('customers.id').order('transaction_count DESC').first
   end
 end
