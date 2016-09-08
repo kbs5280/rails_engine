@@ -1,9 +1,6 @@
 class Api::V1::Customers::FavoriteMerchantController < ApplicationController
 
   def show
-    # binding.pry
-    # merchant = Customer.joins(:invoices [:transactions, :invoice_items])
-    # respond_with merchant
+    Customer.find(params[:id]).merchants.select("merchants.*, count(transactions.id) as transaction_count").joins(:transactions).where(transactions: { result: 'success' }).group('merchants.id').order('transaction_count DESC').first
   end
-  # returns a merchant where the customer has conducted the most successful transactions
 end
