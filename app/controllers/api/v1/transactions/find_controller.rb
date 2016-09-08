@@ -2,13 +2,11 @@ class Api::V1::Transactions::FindController < ApplicationController
   respond_to :json, :xml
 
   def index
-    require 
     transaction = Transaction.where(transaction_params)
     respond_with transaction
   end
 
   def show
-    require 
     transaction = Transaction.find_by(transaction_params)
     respond_with transaction
   end
