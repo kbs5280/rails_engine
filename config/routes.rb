@@ -7,7 +7,6 @@ Rails.application.routes.draw do
         get 'find_all', to: 'find#index'
         get 'find',     to: 'find#show'
         get 'random',   to: 'random#show'
-        #
         get '/most_revenue',                       to: 'most_revenue#index'
         get '/most_items',                         to: 'most_items#index'
         get '/revenue',                            to: 'revenue#index'
@@ -21,23 +20,23 @@ Rails.application.routes.draw do
 
       namespace :invoices do
         get 'find_all',           to: 'find#index'
+        get 'find',               to: 'find#show'
+        get 'random',             to: 'random#show'
         get '/:id/transactions',  to: 'transactions#index'
         get '/:id/invoice_items', to: 'invoice_items#index'
         get '/:id/items',         to: 'items#index'
-        get 'find',               to: 'find#show'
-        get 'random',             to: 'random#show'
         get '/:id/customer',      to: 'customer#show'
         get '/:id/merchant',      to: 'merchant#show'
       end
       resources :invoices, only: [:index, :show]
 
       namespace :items do
-        get '/:id/invoice_items', to: 'invoice_items#index'
         get 'find_all',           to: 'find#index'
         get 'find',               to: 'find#show'
         get 'random',             to: 'random#show'
         get '/:id/best_day',      to: 'best_day#show'
         get '/:id/merchant',      to: 'merchant#show'
+        get '/:id/invoice_items', to: 'invoice_items#index'
       end
       resources :items, only: [:index, :show]
 
@@ -59,11 +58,11 @@ Rails.application.routes.draw do
       resources :transactions, only: [:index, :show]
 
       namespace :customers do
-        get '/:id/invoices',     to: 'invoices#index'
-        get '/:id/transactions', to: 'transactions#index'
         get 'find_all',          to: 'find#index'
         get 'find',              to: 'find#show'
         get 'random',            to: 'random#show'
+        get '/:id/invoices',     to: 'invoices#index'
+        get '/:id/transactions', to: 'transactions#index'
       end
       resources :customers, only: [:index, :show]
     end
