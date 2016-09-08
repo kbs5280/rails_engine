@@ -2,11 +2,13 @@ class Api::V1::Customers::FindController < ApplicationController
   respond_to :json, :xml
 
   def index
+    require
     customers = Customer.where(customer_params)
     respond_with customers
   end
 
   def show
+    require
     customer = Customer.find_by(customer_params)
     respond_with customer
   end
