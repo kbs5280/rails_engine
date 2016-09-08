@@ -1,6 +1,8 @@
 class Api::V1::Customers::FavoriteMerchantController < ApplicationController
+  respond_to :json, :xml
 
   def show
-    Customer.find(params[:id]).merchants.select("merchants.*, count(transactions.id) as transaction_count").joins(:transactions).where(transactions: { result: 'success' }).group('merchants.id').order('transaction_count DESC').first
+    merchant = Customer.customer_favorite_merchant(params[:id])
+    respond_with merchant
   end
 end
