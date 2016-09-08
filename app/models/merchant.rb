@@ -9,7 +9,7 @@ class Merchant < ApplicationRecord
   end
 
   def self.most_items(quantity)
-    joins(invoices: :invoice_items).group(:id).order('sum(invoice_items.quantity) DESC').limit(quantity)
+    joins(invoices: [:invoice_items, :transactions]).where(transactions: { result: 'success' }).group(:id).order('sum(invoice_items.quantity) DESC').limit(quantity)
   end
 
   def self.revenue_by_date_all_merchants(date)
@@ -41,6 +41,3 @@ class Merchant < ApplicationRecord
     {"revenue"=>(response.round / 100.0).to_s}
   end
 end
-
-
-# Customer.joins(invoices: :transactions).group(:id).where(transactions: {result: 'success'}).count

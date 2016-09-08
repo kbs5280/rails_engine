@@ -8,4 +8,8 @@ class Item < ApplicationRecord
   def self.find_random_item
     order("RANDOM()").limit(1)
   end
+
+  def self.item_ranked_by_total_revenue_generated(quantity)
+    unscoped.select("items.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS total_revenue").joins(:invoices, :transactions).where(transactions: { result: 'success' }).order("total_revenue DESC").group('items.id').limit(quantity)
+  end
 end
