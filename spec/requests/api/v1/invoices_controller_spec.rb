@@ -14,7 +14,7 @@ describe 'Invoices controller' do
   end
 
   it 'return a single invoice with matching is' do
-    invoice = create(:invoice, id: 1)
+    invoice  = create(:invoice, id: 1)
     invoice2 = create(:invoice, id: 2)
 
     get "/api/v1/invoices/2"

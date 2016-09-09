@@ -7,7 +7,7 @@ describe 'Customers find controller' do
     customer_2 = create(:customer, first_name: 'Alan')
     customer_3 = create(:customer, first_name: 'Grace')
 
-    get '/api/v1/customers/find_all', { first_name: 'Alan' }
+    get '/api/v1/customers/find_all', params: { first_name: 'Alan' }
 
     expect(response).to be_success
 
@@ -20,7 +20,7 @@ describe 'Customers find controller' do
     customer_2 = create(:customer, first_name: 'Grace')
     customer_3 = create(:customer, first_name: 'Grace')
 
-    get '/api/v1/customers/find', { first_name: 'Grace' }
+    get '/api/v1/customers/find', params: { first_name: 'Grace' }
 
     expect(response).to be_success
 

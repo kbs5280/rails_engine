@@ -10,7 +10,7 @@ describe 'Invoices find controller' do
     invoice_3 = create(:invoice, id: '3', customer_id: 3)
     invoice_4 = create(:invoice)
 
-    get '/api/v1/invoices/find_all', { merchant_id: '2',
+    get '/api/v1/invoices/find_all', params: { merchant_id: '2',
                                        customer_id: '3' }
 
     expect(response).to be_success
@@ -25,7 +25,7 @@ describe 'Invoices find controller' do
     invoice_2 = create(:invoice, id: '2')
     invoice_3 = create(:invoice, id: '42')
 
-    get '/api/v1/invoices/find', { id: 42 }
+    get '/api/v1/invoices/find', params: { id: 42 }
 
     expect(response).to be_success
 

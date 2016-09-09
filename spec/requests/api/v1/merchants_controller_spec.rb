@@ -14,7 +14,7 @@ describe 'Merchants controller' do
   end
 
   it 'return a single merchant with matching is' do
-    merchant = create(:merchant, id: 1, name: "Slice")
+    merchant  = create(:merchant, id: 1, name: "Slice")
     merchant2 = create(:merchant, id: 2, name: "Thrice")
 
     get '/api/v1/merchants/2'
