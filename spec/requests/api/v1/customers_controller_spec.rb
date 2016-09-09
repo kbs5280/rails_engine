@@ -14,7 +14,7 @@ describe 'Customers controller' do
   end
 
   it 'returns a customer with the provided id' do
-    customer = create(:customer, id: 1, first_name: 'Stan')
+    customer  = create(:customer, id: 1, first_name: 'Stan')
     customer2 = create(:customer, id: 2, first_name: 'Dan')
 
     get "/api/v1/customers/1"

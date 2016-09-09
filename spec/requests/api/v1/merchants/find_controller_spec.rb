@@ -7,8 +7,8 @@ describe 'Merchants find controller' do
     merchant_2 = create(:merchant, name: 'Tim', created_at: '2012-03-27T14:54:05.000Z')
     merchant_3 = create(:merchant, name: 'Grace', created_at: '2012-03-27T14:54:05.000Z')
 
-    get '/api/v1/merchants/find_all', { name: 'Tim',
-                                        created_at: '2012-03-27T14:54:05.000Z' }
+    get '/api/v1/merchants/find_all', params: { name: 'Tim',
+                                                created_at: '2012-03-27T14:54:05.000Z' }
 
     expect(response).to be_success
 
@@ -22,8 +22,8 @@ describe 'Merchants find controller' do
     merchant_2 = create(:merchant, name: 'Tim', created_at: '2012-03-27T14:54:05.000Z')
     merchant_3 = create(:merchant, name: 'Grace', created_at: '2012-03-27T14:54:05.000Z')
 
-    get '/api/v1/merchants/find', { name: 'Tim',
-                                        created_at: '2012-03-27T14:54:05.000Z' }
+    get '/api/v1/merchants/find', params: { name: 'Tim',
+                                            created_at: '2012-03-27T14:54:05.000Z' }
 
     expect(response).to be_success
 

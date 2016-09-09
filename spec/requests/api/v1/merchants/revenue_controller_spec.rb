@@ -19,7 +19,7 @@ describe 'Merchants revenue controller' do
     transaction_2  = create(:transaction, invoice_id: invoice_2.id)
     transaction_3  = create(:transaction, invoice_id: invoice_3.id)
 
-    get "/api/v1/merchants/revenue", { date: invoice_1.created_at }
+    get "/api/v1/merchants/revenue", params: { date: invoice_1.created_at }
 
     expect(response).to be_success
 
