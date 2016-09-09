@@ -1,6 +1,5 @@
 class Api::V1::InvoiceItems::FindController < ApplicationController
   before_action :sanitize_unit_price
-  respond_to :json, :xml
 
   def index
     invoice_items = InvoiceItem.where(invoice_items_params)

@@ -1,5 +1,4 @@
 class Api::V1::Items::MostRevenueController < ApplicationController
-  respond_to :json, :xml
 
   def index
     most_revenue = Item.item_ranked_by_total_revenue_generated(params[:quantity])
