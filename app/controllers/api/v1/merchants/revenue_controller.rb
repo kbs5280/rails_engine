@@ -1,5 +1,4 @@
 class Api::V1::Merchants::RevenueController < ApplicationController
-  respond_to :json, :xml
 
   def index
     revenue = Merchant.revenue_by_date_all_merchants( params[:date] )
