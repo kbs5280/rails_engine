@@ -10,10 +10,18 @@ class Item < ApplicationRecord
   end
 
   def self.item_ranked_by_total_revenue_generated(quantity)
-    unscoped.select("items.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS total_revenue").joins(:invoices, :transactions).where(transactions: { result: 'success' }).order("total_revenue DESC").group('items.id').limit(quantity)
+    unscoped.select("items.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS total_revenue")
+    .joins(:invoices, :transactions)
+    .where(transactions: { result: 'success' })
+    .order("total_revenue DESC")
+    .group('items.id').limit(quantity)
   end
 
   def self.item_ranked_by_total_number_sold(quantity)
-    unscoped.select("items.*, SUM(invoice_items.quantity) AS total_items").joins(:invoices, :transactions).where(transactions: { result: 'success' }).order("total_items DESC").group('items.id').limit(quantity)
+    unscoped.select("items.*, SUM(invoice_items.quantity) AS total_items")
+    .joins(:invoices, :transactions)
+    .where(transactions: { result: 'success' })
+    .order("total_items DESC")
+    .group('items.id').limit(quantity)
   end
 end
