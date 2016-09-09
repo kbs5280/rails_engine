@@ -1,4 +1,4 @@
-class Api::V1::Merchants::RevenueController < ApplicationController
+ class Api::V1::Merchants::RevenueController < ApplicationController
 
   def index
     revenue = Merchant.revenue_by_date_all_merchants( params[:date] )
