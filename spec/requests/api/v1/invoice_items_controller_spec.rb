@@ -14,7 +14,7 @@ describe 'Invoice Items controller' do
   end
 
   it 'returns a single invoice item with id' do
-    invoice_item = create(:invoice_item, id: 1)
+    invoice_item  = create(:invoice_item, id: 1)
     invoice_item2 = create(:invoice_item, id: 2)
 
     get "/api/v1/invoice_items/1"

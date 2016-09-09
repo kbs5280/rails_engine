@@ -8,7 +8,7 @@ describe 'Items find controller' do
     item_2   = create(:item, name: 'machine', merchant_id: 1)
     item_3   = create(:item, name: 'machine', merchant_id: 1)
 
-    get '/api/v1/items/find_all', { name: 'machine',
+    get '/api/v1/items/find_all', params: { name: 'machine',
                                     merchant_id: '1' }
 
     expect(response).to be_success
@@ -21,10 +21,10 @@ describe 'Items find controller' do
   it 'sends an item by params' do
     merchant_1 = create(:merchant, id: 1)
     merchant_2 = create(:merchant, id: 42)
-    item_1 = create(:item, name: 'machine', merchant_id: 1)
-    item_2 = create(:item, name: 'machine', merchant_id: 42)
+    item_1     = create(:item, name: 'machine', merchant_id: 1)
+    item_2     = create(:item, name: 'machine', merchant_id: 42)
 
-    get '/api/v1/items/find', { name: 'machine', merchant_id: 42 }
+    get '/api/v1/items/find', params: { name: 'machine', merchant_id: 42 }
 
     expect(response).to be_success
 

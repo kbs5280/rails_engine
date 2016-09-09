@@ -14,7 +14,7 @@ describe 'Items controller' do
   end
 
   it 'return a single item with matching id' do
-    item = create(:item, id: 1 )
+    item  = create(:item, id: 1 )
     item2 = create(:item, id: 2, name: 'Jimmy' )
 
     get "/api/v1/items/2"

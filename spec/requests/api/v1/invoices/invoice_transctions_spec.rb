@@ -3,9 +3,9 @@ require 'rails_helper'
 include RequestHelper
 describe 'Invoice transactions controller' do
   it 'sends an transaction by id' do
-    invoice = create(:invoice, id: 1)
-    invoice2 = create(:invoice, id: 2)
-    transaction = create(:transaction, id: 35, invoice_id: 2)
+    invoice      = create(:invoice, id: 1)
+    invoice2     = create(:invoice, id: 2)
+    transaction  = create(:transaction, id: 35, invoice_id: 2)
     transaction2 = create(:transaction, id: 72, invoice_id: 1)
 
     get "/api/v1/invoices/#{invoice.id}/transactions"
