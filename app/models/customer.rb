@@ -8,6 +8,10 @@ class Customer < ApplicationRecord
   end
 
   def self.customer_favorite_merchant(customer_id)
-    find_by(id: customer_id).merchants.select("merchants.*, count(transactions.id) as transaction_count").joins(:transactions).where(transactions: { result: 'success' }).group('merchants.id').order('transaction_count DESC').first
+    find_by(id: customer_id).merchants.select("merchants.*, count(transactions.id) as transaction_count")
+    .joins(:transactions)
+    .where(transactions: { result: 'success' })
+    .group('merchants.id')
+    .order('transaction_count DESC').first
   end
 end
